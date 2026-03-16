@@ -1,0 +1,95 @@
+# ================================
+# OS
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# IDE
+# ================================
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# ================================
+# Logs
+# ================================
+logs/
+*.log
+
+# ================================
+# Environment
+# ================================
+.env
+.env.*
+*.env
+
+# ================================
+# Java / Spring Boot
+# ================================
+backend/build/
+backend/.gradle/
+backend/out/
+backend/bin/
+
+# application config
+backend/src/main/resources/application.properties
+backend/src/main/resources/application.yml
+backend/src/main/resources/application-dev.yml
+backend/src/main/resources/application-local.yml
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# ================================
+# Node / React / Vite
+# ================================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/coverage/
+
+# ================================
+# Python / FastAPI
+# ================================
+ai-server/venv/
+ai-server/.venv/
+ai-server/__pycache__/
+ai-server/*.pyc
+ai-server/.pytest_cache/
+ai-server/.mypy_cache/
+
+# Python general
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ================================
+# Docker
+# ================================
+docker-compose.override.yml
+
+# ================================
+# Database
+# ================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ================================
+# Temporary files
+# ================================
+tmp/
+temp/
+*.tmp
+*.swp
