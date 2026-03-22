@@ -1,4 +1,4 @@
-package com.dju.backend.domain.user;
+package com.dju.backend.domain.user.auth;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
-public class AuthMethods {
+public class AuthMethodEntity {
 
     @Id
     private Long id;
@@ -22,15 +22,18 @@ public class AuthMethods {
 
     private String subjectId;
 
+    private String email;
+
     private String password;
 
     @Builder
-    public AuthMethods(
+    public AuthMethodEntity(
             Long id,
             Long userId,
             AuthProvider provider,
             String username,
             String subjectId,
+            String email,
             String password
     ) {
         this.id = id;
@@ -38,23 +41,26 @@ public class AuthMethods {
         this.provider = provider;
         this.username = username;
         this.subjectId = subjectId;
+        this.email = email;
         this.password = password;
     }
 
-    public AuthMethods of(
+    public AuthMethodEntity of(
             Long id,
             Long userId,
             AuthProvider provider,
             String username,
             String subjectId,
+            String email,
             String password
     ) {
-        return AuthMethods.builder()
+        return AuthMethodEntity.builder()
                 .id(id)
                 .userId(userId)
                 .provider(provider)
                 .username(username)
                 .subjectId(subjectId)
+                .email(email)
                 .password(password)
                 .build();
     }

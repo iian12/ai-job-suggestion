@@ -1,4 +1,4 @@
-package com.dju.backend.domain.user;
+package com.dju.backend.domain.user.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
