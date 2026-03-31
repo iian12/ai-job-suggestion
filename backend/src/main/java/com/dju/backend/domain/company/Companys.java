@@ -11,7 +11,7 @@ public class Companys {
     private Integer workerCount;
     private Integer marked;
 
-    // 무분별한 객체 생성을 막기 위해 생성자를 private으로 닫아둡니다.
+    // 무분별한 객체 생성을 막기 위해 생성자를 private으로 닫아둠.
     private Companys(CompanyId id, String name, CompanyScale scale, Integer avgSalary, Integer workerCount, Integer marked) {
         validateName(name);
         validateScale(scale);

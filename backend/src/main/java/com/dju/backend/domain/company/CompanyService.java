@@ -21,8 +21,8 @@ public class CompanyService implements RegisterCompanyUseCase{
             throw new CompanyAlreadyExistsException("이미 등록된 기업 이름입니다: " + command.name());
         }
         // 1. 순수 도메인 객체 생성 및 검증
-        // Command에서 데이터를 꺼내 도메인의 정적 팩토리 메서드(create)로 전달합니다.
-        // 이때 이름이 비었는지, 연봉이 음수인지 등의 데이터 유효성 검증이 도메인 내부에서 자동으로 수행됩니다.
+        // Command에서 데이터를 꺼내 도메인의 정적 팩토리 메서드(create)로 전달.
+        // 이때 이름이 비었는지, 연봉이 음수인지 등의 데이터 유효성 검증이 도메인 내부에서 자동으로 수행.
         Companys newCompany = Companys.create(
                 command.name(),
                 command.scale(),
@@ -31,8 +31,7 @@ public class CompanyService implements RegisterCompanyUseCase{
         );
 
         // 2. 데이터베이스 저장 지시
-        // 검증을 무사히 통과하여 만들어진 도메인 객체를 Repository에 넘겨 DB 저장을 지시합니다.
-        // (내부적으로 Mapper가 동작하여 Entity로 변환되는 과정은 서비스가 알 필요가 없습니다.)
+        // 검증을 무사히 통과하여 만들어진 도메인 객체를 Repository에 넘겨 DB 저장을 지시함
         return companyRepository.save(newCompany);
     }
 }
