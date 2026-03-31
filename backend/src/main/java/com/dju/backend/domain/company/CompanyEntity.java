@@ -16,14 +16,17 @@ import lombok.NoArgsConstructor;
 public class CompanyEntity {
 
     @Id // 테이블의 기본키(PK)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 자동 생성 전략 (DB에 따라 AUTO, SEQUENCE 등으로 변경 가능)
     @Column // 필드를 테이블의 컬럼과 매핑
     private Long id;              // 기업 고유 ID (식별자)
 
-    @Column
+    // [보완] 이름은 절대 비어있을 수 없고(nullable = false), 중복될 수 없음(unique = true)
+    @Column(nullable = false, unique = true)
     private String name;          // 기업명
 
+    // [보완] 기업 규모 역시 필수값이므로 nullable = false 추가
     @Enumerated(EnumType.STRING) // Enum 값을 DB에 저장할 때 숫자가 아닌 문자열(이름 그대로)로 저장
-    @Column
+    @Column(nullable = false)
     private CompanyScale scale;   // 기업 규모 (STARTUP, SMALL, MIDDLE, BIG)
 
     @Column
@@ -32,7 +35,8 @@ public class CompanyEntity {
     @Column
     private Integer workerCount;  // 임직원 수
 
-    @Column
+    // [보완] 마크 횟수도 기본적으로 0부터 시작하는 필수값이므로 nullable = false 추가
+    @Column(nullable = false)
     private Integer marked;       // 관심기업 등록 횟수
 
     /**
